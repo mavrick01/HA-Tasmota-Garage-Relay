@@ -11,5 +11,5 @@ The simplest version of a GarageDoor Relay working with Home Assistant and Tasmo
 
 The other is the config file. I call it GarageDoor.yml which I put under packages. 
 
-This came originally from Dr ZZs's video 
+This is based from Dr ZZs's video 
 https://www.youtube.com/watch?v=QMepwpyjMCY&t=117s
