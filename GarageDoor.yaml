@@ -1,0 +1,31 @@
+# Build the Garage Door that uses Tasmota. It currently only uses Switch2 (Open sensor)
+cover:
+  - platform: mqtt
+    name: "Garage"
+    state_topic: "cmnd/GarageDrLED/POWER2"
+    command_topic: "cmnd/GarageDr/POWER"
+    availability_topic: "tele/GarageDr/LWT"
+    device_class: garage
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    payload_open: "ON"
+    payload_close: "ON"
+    payload_stop: "ON"
+    state_open: "OFF"
+    state_closed: "ON"
+    optimistic: false
+
+# Created 2 Binary Switches so I can track if the system is somewhere in between the states. 
+binary_sensor:
+  - platform: mqtt
+    name: "Garage Door OpenSwitch"
+    state_topic: "cmnd/GarageDrLED/POWER2"
+    payload_on: "OFF"
+    payload_off: "ON"
+    device_class: opening
+  - platform: mqtt
+    name: "Garage Door CloseSwitch"
+    state_topic: "cmnd/GarageDrLED/POWER3"
+    payload_on: "ON"
+    payload_off: "OFF"
+    device_class: opening
